@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Kumu network</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style id="css">
+:root{--paper:#F6F7F6;--surface:#FFFFFF;--ink:#1B2421;--muted:#5E6B66;--line:#D9DEDB;--soft:#EEF1EF;--danger:#A32D2D;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#121615;--surface:#1A201E;--ink:#E8EDEA;--muted:#9AA6A1;--line:#2C3431;--soft:#202725;--danger:#F09595}}
+:root[data-theme="dark"]{--paper:#121615;--surface:#1A201E;--ink:#E8EDEA;--muted:#9AA6A1;--line:#2C3431;--soft:#202725;--danger:#F09595}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Figtree,system-ui,-apple-system,"Segoe UI",sans-serif;font-size:15px;line-height:1.5}
+.wrap{max-width:880px;margin:0 auto;padding:24px 20px 64px}
+.bar{display:flex;flex-wrap:wrap;align-items:center;gap:12px;justify-content:space-between;margin-bottom:8px}
+.bar label{font-size:13px;color:var(--muted);display:flex;align-items:center;gap:8px}
+input,textarea,button{font:inherit;color:inherit}
+input[type=text]{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:6px 8px;min-width:0}
+input[type=text]:focus,textarea:focus,button:focus-visible{outline:2px solid var(--ink);outline-offset:1px}
+button{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:7px 14px;cursor:pointer}
+button:hover{background:var(--soft)}
+button.primary{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+button.primary:hover{opacity:.88}
+.status{font-size:13px;color:var(--muted)}
+.chart{max-width:720px;margin:0 auto}
+.chart svg{display:block;width:100%;height:auto}
+h2{font-size:17px;font-weight:600;margin:36px 0 4px}
+.hint{font-size:13px;color:var(--muted);margin:0 0 12px}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:720px;font-size:14px}
+th{text-align:left;font-weight:500;color:var(--muted);font-size:13px;padding:8px;border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:4px;border-bottom:1px solid var(--soft)}
+td input[type=text]{width:100%;border-color:transparent;background:transparent}
+td input[type=text]:hover{border-color:var(--line)}
+td.x{width:36px;text-align:center}
+td.x button{border:none;background:none;color:var(--muted);padding:4px 8px}
+td.x button:hover{color:var(--danger)}
+.row-actions{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+details{margin-top:20px}
+summary{cursor:pointer;font-size:14px;color:var(--muted)}
+textarea{width:100%;min-height:140px;margin-top:10px;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:8px;font-size:13px;font-family:ui-monospace,Menlo,monospace}
+.err{color:var(--danger);font-size:13px;min-height:1em;margin-top:6px}
+</style></head><body><div id="root"></div>
+<script type="application/json" id="data">{"center":"Me","rows":[
+{"kumu":"Kumu Dan","wahi":"Makaliʻi Metrics","visits":"5","ahupuaa":"Mānoa","label":"Hi","moku":"Kona"},
+{"kumu":"Kumu Zack","wahi":"Makaliʻi Metrics","visits":"5","ahupuaa":"Mānoa","label":"Hi","moku":"Kona"},
+{"kumu":"Kumu Kiani","wahi":"Liliʻuokalani Center","visits":"1","ahupuaa":"Honolulu","label":"3","moku":"Kona"},
+{"kumu":"Kumu Jose","wahi":"Liliʻuokalani Center","visits":"1","ahupuaa":"Honolulu","label":"67326569","moku":"Kona"},
+{"kumu":"Kumu Keoni","wahi":"Liliʻuokalani Center","visits":"45808747","ahupuaa":"Honolulu","label":"Hi","moku":"Kona"},
+{"kumu":"Kumu Dan","wahi":"Makaliʻi Metrics","visits":"45657202","ahupuaa":"Kāneʻohe","label":"32669","moku":"Koʻolaupoko"},
+{"kumu":"Kumu Zack","wahi":"Makaliʻi Metrics","visits":"44177969","ahupuaa":"Kāneʻohe","label":"33745","moku":"Koʻolaupoko"},
+{"kumu":"Kumu Kimeona","wahi":"Pūhā","visits":"43792855","ahupuaa":"Waimānalo","label":"2688235","moku":"Koʻolaupoko"},
+{"kumu":"Uncle Brandon","wahi":"Nation of Hawaiʻi","visits":"43533592","ahupuaa":"Waimānalo","label":"804567","moku":"Koʻolaupoko"},
+{"kumu":"Uncle Brandon","wahi":"Nation of Hawaiʻi","visits":"40099462","ahupuaa":"Waimānalo","label":"Hi","moku":"Koʻolaupoko"},
+{"kumu":"Kumu Keoni","wahi":"Nation of Hawaiʻi","visits":"38246108","ahupuaa":"Waimānalo","label":"10278345","moku":"Koʻolaupoko"},
+{"kumu":"Kumu Dan","wahi":"Makaliʻi Metrics","visits":"51744876","ahupuaa":"Maunalua","label":"Hi","moku":"Kona"},
+{"kumu":"Kumu Zack","wahi":"Makaliʻi Metrics","visits":"51516562","ahupuaa":"Maunalua","label":"Hi","moku":"Kona"},
+{"kumu":"Kumu Kiani","wahi":"Liliʻuokalani Center","visits":"47415750","ahupuaa":"Waikīkī","label":"3","moku":"Kona"},
+{"kumu":"Kumu Jose","wahi":"Liliʻuokalani Center","visits":"45853778","ahupuaa":"Waikīkī","label":"67326569","moku":"Kona"},
+{"kumu":"Kumu Keoni","wahi":"Liliʻuokalani Center","visits":"45808747","ahupuaa":"Honolulu","label":"Hi","moku":"Kona"},
+{"kumu":"Kumu Dan","wahi":"Makaliʻi Metrics","visits":"45657202","ahupuaa":"Kāneʻohe","label":"32669","moku":"Koʻolaupoko"},
+{"kumu":"Kumu Zack","wahi":"Makaliʻi Metrics","visits":"44177969","ahupuaa":"Kāneʻohe","label":"33745","moku":"Koʻolaupoko"},
+{"kumu":"Kumu Kimeona","wahi":"Pūhā","visits":"43792855","ahupuaa":"Heʻeia","label":"2688235","moku":"Koʻolaupoko"},
+{"kumu":"Uncle Brandon","wahi":"Nation of Hawaiʻi","visits":"43533592","ahupuaa":"Heʻeia","label":"804567","moku":"Koʻolaupoko"},
+{"kumu":"Uncle Brandon","wahi":"Nation of Hawaiʻi","visits":"40099462","ahupuaa":"Waimānalo","label":"Hi","moku":"Koʻolaupoko"},
+{"kumu":"Kumu Keoni","wahi":"Nation of Hawaiʻi","visits":"38246108","ahupuaa":"Waimānalo","label":"10278345","moku":"Koʻolaupoko"}
+]}</script>
+<script id="app">
+(function(){
+const COLS=[['kumu','Kumu Name'],['wahi','Wahi'],['visits','Number Visits'],['ahupuaa','Ahupuaʻa'],['label','Label'],['moku','Moku']];
+const PAL=['#1D9E75','#7F77DD','#D85A30','#D4537E','#378ADD','#BA7517','#639922','#993556'];
+const NS='http://www.w3.org/2000/svg';
+let state=JSON.parse(document.getElementById('data').textContent);
+let dirty=false,readOnly=false;
+const artP=(window.claude&&window.claude.use)?window.claude.use('artifact').catch(()=>null):Promise.resolve(null);
+
+document.getElementById('root').innerHTML=`<div class="wrap">
+<div class="bar"><label>Center label <input type="text" id="center" aria-label="Center label"></label>
+<div style="display:flex;align-items:center;gap:12px"><span class="status" id="status" aria-live="polite"></span><button class="primary" id="save">Save changes</button></div></div>
+<div class="chart" id="chart"></div>
+<h2>Data</h2><p class="hint">Edit any cell and the network updates as you type. Rows with the same moku, ahupuaʻa, wahi, and kumu are shown once.</p>
+<div class="tablewrap"><table><thead><tr id="thead"></tr></thead><tbody id="tbody"></tbody></table></div>
+<div class="row-actions"><button id="add">Add row</button></div>
+<details><summary>Paste data from a spreadsheet</summary>
+<textarea id="paste" placeholder="Kumu Name&#9;Wahi&#9;Number Visits&#9;Ahupuaʻa&#9;Label&#9;Moku"></textarea>
+<div class="row-actions"><button id="replace">Replace all rows</button><button id="append">Add to existing rows</button></div>
+<div class="err" id="perr"></div></details></div>`;
+
+const $=id=>document.getElementById(id);
+const mk=(t,a,p)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e;};
+
+function setStatus(t){$('status').textContent=t;}
+function markDirty(){dirty=true;setStatus(readOnly?'Changes are only in this view':'Unsaved changes');}
+
+let rt=null;function scheduleChart(){clearTimeout(rt);rt=setTimeout(drawChart,120);}
+
+function buildTree(){
+  const root={name:state.center||'Me',depth:0,kids:[],parent:null};
+  const find=(p,name,depth,moku)=>{let n=p.kids.find(k=>k.name===name);if(!n){n={name,depth,kids:[],parent:p,moku};p.kids.push(n);}return n;};
+  const mokuIdx={};
+  state.rows.forEach(r=>{
+    const k=(r.kumu||'').trim();if(!k)return;
+    const m=(r.moku||'').trim()||'(no moku)',a=(r.ahupuaa||'').trim()||'(no ahupuaʻa)',w=(r.wahi||'').trim()||'(no wahi)';
+    if(!(m in mokuIdx))mokuIdx[m]=Object.keys(mokuIdx).length;
+    const n1=find(root,m,1,m),n2=find(n1,a,2,m),n3=find(n2,w,3,m);find(n3,k,4,m);
+  });
+  return {root,mokuIdx};
+}
+
+function drawChart(){
+  const {root,mokuIdx}=buildTree();
+  const box=$('chart');box.innerHTML='';
+  const svg=mk('svg',{viewBox:'0 0 680 680',role:'img','aria-label':'Radial network of kumu by moku, ahupuaʻa, and wahi'},box);
+  const L=mk('g',{},svg),N=mk('g',{},svg),TIP=mk('g',{style:'pointer-events:none;opacity:0;transition:opacity .12s'},svg);
+  const all=[];let leaves=[];
+  (function walk(n){all.push(n);if(!n.kids.length&&n.depth===4)leaves.push(n);n.kids.forEach(walk);})(root);
+  const cx=340,cy=340,R=[0,78,142,200,250],SZ=[0,9,7.5,6,5],NL=Math.max(leaves.length,1),step=360/NL,off=-180-step/2;
+  leaves.forEach((n,i)=>n.a=(i+0.5)*step+off);
+  (function ang(n){if(n.depth===4)return n.a;if(!n.kids.length){n.a=0;return 0;}n.a=n.kids.map(ang).reduce((s,v)=>s+v,0)/n.kids.length;return n.a;})(root);
+  const pt=(r,a)=>{const t=a*Math.PI/180;return[cx+r*Math.sin(t),cy-r*Math.cos(t)];};
+  const col=n=>PAL[(mokuIdx[n.moku]||0)%PAL.length];
+  if(!leaves.length){const t=mk('text',{x:cx,y:cy,'text-anchor':'middle','dominant-baseline':'central',fill:'var(--muted)','font-size':14},svg);t.textContent='Add a row with a kumu name to start the network';return;}
+  all.forEach(n=>{if(!n.parent)return;const d=n.depth,[x0,y0]=pt(R[d-1],n.parent.a),[x1,y1]=pt(R[d],n.a);let p;
+    if(d===1)p=`M${x0} ${y0}L${x1} ${y1}`;else{const rm=(R[d-1]+R[d])/2,[ax,ay]=pt(rm,n.parent.a),[bx,by]=pt(rm,n.a);p=`M${x0} ${y0}C${ax} ${ay} ${bx} ${by} ${x1} ${y1}`;}
+    n.link=mk('path',{d:p,fill:'none',stroke:col(n),'stroke-width':1,opacity:.55},L);});
+  let tipG=null;
+  const showTip=(n,x,y)=>{if(tipG)tipG.remove();tipG=mk('g',{},TIP);const r=mk('rect',{rx:6,height:26,fill:'var(--surface)',stroke:col(n),'stroke-width':1},tipG);
+    const ty=y-SZ[n.depth]-20;const t=mk('text',{x,y:ty,'text-anchor':'middle','dominant-baseline':'central',fill:'var(--ink)','font-size':14,'font-weight':500},tipG);t.textContent=n.name;
+    const w=t.getComputedTextLength()+24;r.setAttribute('x',x-w/2);r.setAttribute('y',ty-13);r.setAttribute('width',w);TIP.style.opacity=1;};
+  const small=NL>24?11:12,big=NL>24?12:14;
+  all.forEach(n=>{const [x,y]=pt(R[n.depth],n.a);const g=mk('g',{style:'transition:opacity .15s'},N);n.el=g;
+    if(n.depth===0){const c=mk('circle',{cx,cy,r:34,fill:'var(--ink)'},g);const ring=mk('circle',{cx,cy,r:41,fill:'none',stroke:'var(--ink)','stroke-width':.5},g);
+      const t=mk('text',{x:cx,y:cy,'text-anchor':'middle','dominant-baseline':'central',fill:'var(--paper)','font-size':15,'font-weight':600},g);t.textContent=n.name;
+      const rr=Math.min(Math.max(34,t.getComputedTextLength()/2+12),60);c.setAttribute('r',rr);ring.setAttribute('r',rr+7);}
+    else if(n.depth<4){mk('circle',{cx:x,cy:y,r:SZ[n.depth],fill:col(n),stroke:'var(--surface)','stroke-width':1},g);mk('circle',{cx:x,cy:y,r:14,fill:'transparent'},g);
+      g.addEventListener('mouseenter',()=>showTip(n,x,y));g.addEventListener('mouseleave',()=>{TIP.style.opacity=0;});}
+    else{mk('circle',{cx:x,cy:y,r:SZ[4],fill:col(n),stroke:'var(--surface)','stroke-width':1},g);
+      const s=Math.sin(n.a*Math.PI/180),co=Math.cos(n.a*Math.PI/180),[lx,ly]=pt(264,n.a);
+      let anc='middle',y1=ly-7,y2=ly+8;if(s>.35)anc='start';else if(s<-.35)anc='end';else if(co>0){y1=ly-22;y2=ly-6;}else{y1=ly+8;y2=ly+24;}
+      const parts=n.name.split(/\s+/);
+      if(parts.length>1){const a=mk('text',{x:lx,y:y1,'text-anchor':anc,'dominant-baseline':'central',fill:'var(--muted)','font-size':small},g);a.textContent=parts[0];
+        const b=mk('text',{x:lx,y:y2,'text-anchor':anc,'dominant-baseline':'central',fill:'var(--ink)','font-size':big,'font-weight':600},g);b.textContent=parts.slice(1).join(' ');}
+      else{const b=mk('text',{x:lx,y:(y1+y2)/2,'text-anchor':anc,'dominant-baseline':'central',fill:'var(--ink)','font-size':big,'font-weight':600},g);b.textContent=n.name;}}
+    g.addEventListener('mouseenter',()=>hi(n));g.addEventListener('mouseleave',reset);});
+  function hi(n){const s=new Set();let a=n;while(a){s.add(a);a=a.parent;}(function d(k){s.add(k);k.kids.forEach(d);})(n);
+    all.forEach(m=>{m.el.style.opacity=s.has(m)?1:.25;if(m.link)m.link.setAttribute('opacity',s.has(m)&&m!==root?.95:.1);});}
+  function reset(){all.forEach(m=>{m.el.style.opacity=1;if(m.link)m.link.setAttribute('opacity',.55);});}
+}
+
+function drawTable(){
+  $('thead').innerHTML=COLS.map(c=>`<th scope="col">${c[1]}</th>`).join('')+'<th><span class="sr-only" style="position:absolute;left:-9999px">Remove</span></th>';
+  const tb=$('tbody');tb.innerHTML='';
+  state.rows.forEach((r,i)=>{const tr=document.createElement('tr');
+    COLS.forEach(([k,lab])=>{const td=document.createElement('td');const inp=document.createElement('input');inp.type='text';inp.value=r[k]||'';inp.setAttribute('aria-label',lab+' row '+(i+1));
+      inp.addEventListener('input',()=>{r[k]=inp.value;markDirty();scheduleChart();});td.appendChild(inp);tr.appendChild(td);});
+    const td=document.createElement('td');td.className='x';const b=document.createElement('button');b.textContent='×';b.setAttribute('aria-label','Remove row '+(i+1));
+    b.addEventListener('click',()=>{state.rows.splice(i,1);markDirty();drawTable();drawChart();});td.appendChild(b);tr.appendChild(td);tb.appendChild(tr);});
+}
+
+const norm=s=>s.normalize('NFD').replace(/[\u0300-\u036f\u02bb\u2018\u2019']/g,'').toLowerCase().replace(/\s+/g,' ').trim();
+const HEAD={'kumu name':'kumu','kumu':'kumu','wahi':'wahi','number visits':'visits','visits':'visits','ahupuaa':'ahupuaa','label':'label','moku':'moku'};
+function parsePaste(txt){
+  const lines=txt.split(/\r?\n/).filter(l=>l.trim());if(!lines.length)throw new Error('Paste at least one row first.');
+  const sep=lines[0].includes('\t')?'\t':',';const cells=l=>l.split(sep).map(c=>c.trim());
+  let keys=COLS.map(c=>c[0]),start=0;const first=cells(lines[0]).map(norm);
+  if(first.some(c=>c==='moku')||first.some(c=>c==='kumu name')){keys=first.map(c=>HEAD[c]||null);start=1;
+    if(!keys.includes('kumu'))throw new Error('The header row needs a Kumu Name column.');}
+  return lines.slice(start).map(l=>{const c=cells(l),o={};COLS.forEach(([k])=>o[k]='');keys.forEach((k,i)=>{if(k)o[k]=c[i]||'';});return o;}).filter(o=>o.kumu);
+}
+function doPaste(replace){const e=$('perr');e.textContent='';
+  try{const rows=parsePaste($('paste').value);if(!rows.length)throw new Error('No rows with a kumu name were found.');
+    state.rows=replace?rows:state.rows.concat(rows);$('paste').value='';markDirty();drawTable();drawChart();}
+  catch(err){e.textContent=err.message;}}
+$('paste').addEventListener('input',()=>{$('perr').textContent='';});
+$('replace').addEventListener('click',()=>doPaste(true));
+$('append').addEventListener('click',()=>doPaste(false));
+$('add').addEventListener('click',()=>{const o={};COLS.forEach(([k])=>o[k]='');state.rows.push(o);markDirty();drawTable();const ins=$('tbody').querySelectorAll('tr:last-child input');if(ins[0])ins[0].focus();});
+$('center').value=state.center||'Me';
+$('center').addEventListener('input',e=>{state.center=e.target.value;markDirty();scheduleChart();});
+
+function buildHtml(){
+  const css=document.getElementById('css').textContent,app=document.getElementById('app').textContent;
+  const json=JSON.stringify({center:state.center,rows:state.rows.filter(r=>COLS.some(([k])=>(r[k]||'').trim()))}).replace(/</g,'\\u003c');
+  return '<!doctype html>\n<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Kumu network</title>'+
+  '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'+
+  '<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">'+
+  '<style id="css">'+css+'<\/style></head><body><div id="root"></div>\n<script type="application/json" id="data">'+json+'<\/script>\n<script id="app">'+app+'<\/script></body></html>';
+}
+
+$('save').addEventListener('click',async()=>{
+  const art=await artP;
+  if(!art){readOnly=true;setStatus('Saving is not available in this view');return;}
+  $('save').disabled=true;setStatus('Saving…');
+  const was=dirty;dirty=false;
+  try{await art.publish(buildHtml());setStatus('Saved');}
+  catch(e){dirty=was;const c=e&&e.code;
+    if(c==='conflict')setStatus('A newer version was saved elsewhere. Reloading it.');
+    else if(c==='not_writer'||c==='not_granted'||c==='consent_required'||c==='not_declared'||c==='capability_disabled'){readOnly=true;$('save').style.display='none';setStatus('This view is read-only');}
+    else if(c==='rate_limited')setStatus('Saving too often. Wait a moment, then save again.');
+    else if(c==='too_large')setStatus('The data is too large to save.');
+    else setStatus('Could not save. Try again.');}
+  finally{$('save').disabled=false;}
+});
+window.addEventListener('beforeunload',e=>{if(dirty&&!readOnly){e.preventDefault();e.returnValue='';}});
+
+drawTable();drawChart();setStatus('All changes saved');
+})();
+</script></body></html>
